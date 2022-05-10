@@ -95,6 +95,11 @@ class ViewController: UIViewController {
         }
       )
     }
+    
+    self.animator?.addCompletion { [weak self] _ in
+      [self?.redView, self?.greenView, self?.blueView]
+        .forEach { $0?.alpha = 1 }
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
